@@ -9,3 +9,6 @@ def R_15(request):
 
 def R_19(request):
     return render(request,'branches/mech/r_19.html')
+
+def R_15_firstyear(request,year):
+    pass

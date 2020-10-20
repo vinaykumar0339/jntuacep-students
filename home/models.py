@@ -11,3 +11,15 @@ class Register(models.Model):
 
     def __str__(self):
         return self.username
+
+class PdfUpload(models.Model):
+    branch = models.CharField(max_length=20)
+    regulation = models.CharField(max_length=20)
+    year = models.CharField(max_length=20)
+    semester = models.CharField(max_length=20)
+    subject = models.CharField(max_length=100)
+    pdf_file = models.FileField(upload_to='pdfs/',max_length=200)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.subject

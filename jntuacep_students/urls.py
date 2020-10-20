@@ -27,3 +27,4 @@ urlpatterns = [
     path('cse/',include('cse.urls')),
 
 ]
+

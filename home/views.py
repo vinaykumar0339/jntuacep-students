@@ -1,10 +1,11 @@
 from django.shortcuts import render
-from .models import Register
+from .models import Register, PdfUpload
 from django.contrib import messages
 from .password import password_hack, password_decrypt
-from decimal import Decimal
+from decimal import Decimal,ROUND_DOWN
 import requests
 from bs4 import BeautifulSoup
+from django.core.files.storage import FileSystemStorage
 # Create your views here.
 def home(request):
     user_data = {}
@@ -160,7 +161,7 @@ def results(request):
             sgpa += (float(final_result['data'][sub][5]) * float(final_result['data'][sub][6]))
             
         final_result['sgpa'] = Decimal(sgpa/sum(credits)).quantize(Decimal('.001'), rounding=ROUND_DOWN)
-    except Exception as e:
+    except:
         pass
         
     return render(request,'results/result.html',context=final_result)
@@ -180,3 +181,41 @@ def profile(request):
         return render(request,'accounts/signin.html',user_data)
 
     return render(request,'profile/profile.html',user_data)
+
+
+def pdfUpload(request):
+    user_data = {}
+    # to check the user login
+    try:
+        request.session['roll_number']
+
+    except:
+        user_data['need_login'] = True
+        return render(request,'accounts/signin.html',user_data)
+
+
+    if request.method == 'POST':
+        branch = request.POST['branch']
+        regulation = request.POST['regulation']
+        year = request.POST['year']
+        semester = request.POST['semester']
+        subject = request.POST['subject']
+        file = request.FILES['pdf']
+
+
+        
+
+
+        file_path = branch + '/' + regulation + '/' + year + '/' + semester + '/' + file.name
+        fs = FileSystemStorage()
+        file_name = fs.save(file_path,file)
+        print(file_name)
+        len(file_name)
+        user_data['success'] = file.name
+
+        # upload to database to retrive
+        book = PdfUpload(branch=branch,regulation=regulation,year=year,semester=semester,subject=subject,pdf_file=file_name)
+        book.save()
+
+
+    return render(request,'uploads/pdf_uploads.html',user_data)

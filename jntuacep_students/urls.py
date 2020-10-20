@@ -25,3 +25,4 @@ urlpatterns = [
     path('ece/',include('ece.urls')),
     path('cse/',include('cse.urls')),
 ]
+

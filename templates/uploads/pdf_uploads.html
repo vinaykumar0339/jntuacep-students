@@ -30,7 +30,7 @@
             <p style="float: right; color: red;">file already uploaded you can see it <a href="{{file_url}}" tar>here</a> </p>
             <br><br>
             <p style="float: right; color: red;">if it not the same please change uploading file name</p>
-          {% else %}
+          {% elif filename %}
             <p style="float: right; color: green;">you uploaded the file <b>{{filename}}</b> successfully</p>
           {% endif %}
           <br>

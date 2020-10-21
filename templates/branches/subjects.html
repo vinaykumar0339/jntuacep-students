@@ -40,34 +40,38 @@
                 <div class="col-md-8">
                   <div class="card mb-3">
                     <div class="card-body">
-                            {% for subjectName in subjects %}
-                                <div class="row">
-                                    <div class="col-sm-9">
-                                    <h6 class="mb-0">Subject: </h6>
-                                    </div>
-                                    <div class="col-sm-3 text-secondary">
-                                    {{subjectName}}
-                                    </div>
-                                </div>
-                                <br>
-                                {% for pdf in pdfs %}
-                                    {% if subjectName == pdf.subject %}
-                                        <div class="row">
-                                            <div class="col-sm-9">
-                                            <p id='uploadedby' class="mb-0">{{pdf.file_name}}</p>
-                                            <label for="uploadedby">{{pdf.uploaded_by}}</label>
-                                            </div>
-                                            <div class="col-sm-3 text-secondary">
-                                            <a href="{{pdf.file_path.url}}" download="{{pdf.file_path.url}}">
-                                              <button class="btn btn-success"> <i class="fas fa-file-download    "></i> Download</button>
-                                            </a>
-                                            </div>
-                                        </div>
-                                        <br>
-                                    {% endif %}
-                                {% endfor %}
-                                <hr>
-                            {% endfor %}
+                            {% if subjects %}
+                              {% for subjectName in subjects %}
+                                  <div class="row">
+                                      <div class="col-sm-9">
+                                      <h6 class="mb-0">Subject: </h6>
+                                      </div>
+                                      <div class="col-sm-3 text-secondary">
+                                      {{subjectName}}
+                                      </div>
+                                  </div>
+                                  <br>
+                                  {% for pdf in pdfs %}
+                                      {% if subjectName == pdf.subject %}
+                                          <div class="row">
+                                              <div class="col-sm-9">
+                                              <p id='uploadedby' class="mb-0">{{pdf.file_name}}</p>
+                                              <label for="uploadedby">uploaded by <b>{{pdf.uploaded_by}}</b></label>
+                                              </div>
+                                              <div class="col-sm-3 text-secondary">
+                                              <a href="{{pdf.file_path.url}}" download="{{pdf.file_path.url}}">
+                                                <button class="btn btn-success"> <i class="fas fa-file-download    "></i> Download</button>
+                                              </a>
+                                              </div>
+                                          </div>
+                                          <br>
+                                      {% endif %}
+                                  {% endfor %}
+                                  <hr>
+                              {% endfor %}
+                            {% else %}
+                                  <p>no data found in database</p>
+                            {% endif %}
                     </div>
                   </div>
                 </div>

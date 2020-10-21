@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from home.models import PdfUpload
 # Create your views here.
 data = {}
 data['branch'] = 'Mechanical Engineering'
@@ -25,10 +25,12 @@ def mechYear(request,regulation,year):
     return render(request,'branches/year.html',data)
 
 def mechSemester(request,regulation,year,semester):
+    data['regulation'] = regulation
     if year == 1:
         data['year'] = 'First Year'
         if semester == 1:
             data['semester'] = 'First Semester'
+
 
         elif semester == 2:
             data['semester'] = 'Second Semester'
@@ -56,5 +58,11 @@ def mechSemester(request,regulation,year,semester):
 
         elif semester == 2:
             data['semester'] = 'Second Semester'
+            pdfs = PdfUpload.objects.filter(branch='mech',regulation='r-15',year='fourthyear',semester='secondsemester')
+            subjects = []
+            for pdf in pdfs:
+                subjects.append(pdf.subject)
+            data['subjects'] = set(subjects)
+            data['pdfs'] = pdfs
     
     return render(request,'branches/subjects.html',data)

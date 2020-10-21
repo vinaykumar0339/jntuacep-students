@@ -27,7 +27,9 @@
           <h1>Upload a pdf file</h1>
           <hr>
           {% if file_exists %} 
-            <p style="float: right; color: red;">file already uploaded you can see it <a href="{{file_url}}">here</a> </p>
+            <p style="float: right; color: red;">file already uploaded you can see it <a href="{{file_url}}" tar>here</a> </p>
+            <br><br>
+            <p style="float: right; color: red;">if it not the same please change uploading file name</p>
           {% else %}
             <p style="float: right; color: green;">you uploaded the file <b>{{filename}}</b> successfully</p>
           {% endif %}

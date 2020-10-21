@@ -1,17 +1,12 @@
-
-
-
 function upload(){
     var error = false
     var branch = document.getElementById('branch');
     var regulation = document.getElementById('regulation');
     var year = document.getElementById('year')
     var semester = document.getElementById('semester');
-    var subject = document.getElementById('subject');
+    var subject = document.getElementById('subject').value;
     var file = document.getElementById('pdf').value;
     var fields_check = document.getElementById('fields_check');
-
-    
 
     if (branch.selectedIndex == 0){
         error = true

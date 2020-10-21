@@ -26,7 +26,11 @@
         <div class="container">
           <h1>Upload a pdf file</h1>
           <hr>
-          {% if success %} <p style="float: right; color: green;">you uploaded the file <b>{{success}}</b> successfully</p> {% endif %}
+          {% if file_exists %} 
+            <p style="float: right; color: red;">file already uploaded you can see it <a href="{{file_url}}">here</a> </p>
+          {% else %}
+            <p style="float: right; color: green;">you uploaded the file <b>{{filename}}</b> successfully</p>
+          {% endif %}
           <br>
           <p id="fields_check"></p>
           <select class="browser-default custom-select" id="branch" name="branch" onchange="subjects()">

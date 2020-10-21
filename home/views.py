@@ -6,6 +6,7 @@ from decimal import Decimal,ROUND_DOWN
 import requests
 from bs4 import BeautifulSoup
 from django.core.files.storage import FileSystemStorage
+import os
 # Create your views here.
 def home(request):
     user_data = {}
@@ -203,19 +204,20 @@ def pdfUpload(request):
         file = request.FILES['pdf']
 
 
-        
+        file_path = branch + '/' + regulation + '/' + year + '/' + semester + '/' + subject.lower() +'/' +  file.name
+        if os.path.exists("media/" + file_path):
+            user_data['file_exists'] = True
+            user_data['file_url']= "media/" + file_path
 
-
-        file_path = branch + '/' + regulation + '/' + year + '/' + semester + '/' + file.name
-        fs = FileSystemStorage()
-        file_name = fs.save(file_path,file)
-        print(file_name)
-        len(file_name)
-        user_data['success'] = file.name
-
-        # upload to database to retrive
-        book = PdfUpload(branch=branch,regulation=regulation,year=year,semester=semester,subject=subject,pdf_file=file_name)
-        book.save()
+        else:
+            fs = FileSystemStorage()
+            file_name = fs.save(file_path,file)
+            user_data['filename'] = file.name
+            user_data['file_exits'] = False
+            
+            # upload to database to retrive
+            book = PdfUpload(branch=branch,regulation=regulation,year=year,semester=semester,subject=subject,pdf_file=file_name)
+            book.save()
 
 
     return render(request,'uploads/pdf_uploads.html',user_data)

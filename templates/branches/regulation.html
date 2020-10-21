@@ -21,7 +21,7 @@
     {% include 'navbar/navbar.html' %}
 
     <br>
-    <h1 style="text-align: center;">Mechanical Enginnering</h1>
+    <h1 style="text-align: center;">{{branch}}</h1>
     <br>
     <div class="container">
         <div class="row justify-content-center">
@@ -30,8 +30,8 @@
                     <img class="card-img-top" src="{% static 'images/clglogo.jpg' %}" alt="Card image cap">
                     <div class="card-body">
                     <h5 class="card-title">First Year</h5>
-                    <p class="card-text">Regulation - 15</p>
-                    <a href="1" class="btn btn-primary">Go somewhere</a>
+                    <p class="card-text">Regulation - {{regulation}}</p>
+                    <a href="1" class="btn btn-primary">Select Semester</a>
                     </div>
                 </div>
             </div>
@@ -40,8 +40,8 @@
                     <img class="card-img-top" src="{% static 'images/clglogo.jpg' %}" alt="Card image cap">
                     <div class="card-body">
                     <h5 class="card-title">Second Year</h5>
-                    <p class="card-text">Regulation - 15</p>
-                    <a href="R-19" class="btn btn-primary">Go somewhere</a>
+                    <p class="card-text">Regulation - {{regulation}}</p>
+                    <a href="2" class="btn btn-primary">Select Semester</a>
                     </div>
                 </div>
             </div>
@@ -50,8 +50,8 @@
                     <img class="card-img-top" src="{% static 'images/clglogo.jpg' %}" alt="Card image cap">
                     <div class="card-body">
                     <h5 class="card-title">Third Year</h5>
-                    <p class="card-text">Regulation - 15</p>
-                    <a href="R-19" class="btn btn-primary">Go somewhere</a>
+                    <p class="card-text">Regulation - {{regulation}}</p>
+                    <a href="3" class="btn btn-primary">Go To Semesters</a>
                     </div>
                 </div>
             </div>
@@ -60,8 +60,8 @@
                     <img class="card-img-top" src="{% static 'images/clglogo.jpg' %}" alt="Card image cap">
                     <div class="card-body">
                     <h5 class="card-title">Fourth Year</h5>
-                    <p class="card-text">Regulation - 15</p>
-                    <a href="R-19" class="btn btn-primary">Go somewhere</a>
+                    <p class="card-text">Regulation - {{regulation}}</p>
+                    <a href="4" class="btn btn-primary">Go To Semesters</a>
                     </div>
                 </div>
             </div>

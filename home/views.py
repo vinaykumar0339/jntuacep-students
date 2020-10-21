@@ -216,7 +216,14 @@ def pdfUpload(request):
             user_data['file_exits'] = False
             
             # upload to database to retrive
-            book = PdfUpload(branch=branch,regulation=regulation,year=year,semester=semester,subject=subject,pdf_file=file_name)
+            book = PdfUpload(branch=branch,
+                            regulation=regulation,
+                            year=year,
+                            semester=semester,
+                            subject=subject,
+                            file_path=file_name,
+                            file_name=str(file),
+                            uploaded_by=request.session['username'] + ' ('+ request.session['roll_number'] + ')')
             book.save()
 
 

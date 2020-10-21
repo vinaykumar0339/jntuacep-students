@@ -1,6 +1,6 @@
 from django.http import request
 from django.shortcuts import render
-<<<<<<< HEAD
+
 from . import urls
 # Create your views here.
 def cse(request):
@@ -8,7 +8,6 @@ def cse(request):
 
 def display(request):
     return render(request,'branches/cse/DisplayData.html')
-=======
 
 
 data = {}
@@ -69,4 +68,3 @@ def cseSemester(request,regulation,year,semester):
             data['semester'] = 'Second Semester'
     
     return render(request,'branches/subjects.html',data)
->>>>>>> 42eb37643fa015b81d7fd4cc99a0aa5de2497464

@@ -74,23 +74,23 @@ function subjects(){
                     var optionArray = mech_r15_ii_ii
                 }
             }
-        //     else if (year == 'thirdyear'){
-        //         if(semester == 'firstsemester'){
-        //             var optionArray = 
-        //         }
-        //         else{
-        //             var optionArray = 
-        //         }
-        //     }
+            else if (year == 'thirdyear'){
+                if(semester == 'firstsemester'){
+                    var optionArray = mech_r15_iii_i
+                }
+                else{
+                    var optionArray = mech_r15_iii_ii
+                }
+            }
 
-        //     else{
-        //         if(semester == 'firstsemester'){
-        //             var optionArray = 
-        //         }
-        //         else{
-        //             var optionArray = 
-        //         }
-        //     }
+            else{
+                if(semester == 'firstsemester'){
+                    var optionArray = mech_r15_iv_i
+                }
+                else{
+                    var optionArray = mech_r15_iv_ii
+                }
+            }
         }
         
 

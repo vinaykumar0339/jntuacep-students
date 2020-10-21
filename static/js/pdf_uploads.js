@@ -1,3 +1,6 @@
+
+
+
 function upload(){
     var error = false
     var branch = document.getElementById('branch');
@@ -57,24 +60,37 @@ function subjects(){
         if (regulation == 'r-15'){
             if (year == 'firstyear'){
                 if(semester == 'firstsemester'){
-                    var optionArray = [
-                        'ENGINEERING CHEMISTRY',
-                        'ENVIRONMENT STUDIES',
-                        'MATHEMATICS-I',
-                        'COMPUTER PROGRAMMING',
-                        'FUNCTIONAL ENGLISH',
-                        'ENGINEERING MECHANICS',
-                        'ENGINEERING CHEMISTRY LAB',
-                        'COMPUTER PROGRAMMING LAB',
-                        'ENGLISH LANGUAGE COMMUNICATION SKILLS LAB'
-                    ]
+                    var optionArray = mech_r15_i_i
                 }
                 else{
-                    var optionArray = [
-                        
-                    ]
+                    var optionArray = mech_r15_i_ii
                 }
             }
+            else if (year == 'secondyear'){
+                if(semester == 'firstsemester'){
+                    var optionArray = mech_r15_ii_i
+                }
+                else{
+                    var optionArray = mech_r15_ii_ii
+                }
+            }
+        //     else if (year == 'thirdyear'){
+        //         if(semester == 'firstsemester'){
+        //             var optionArray = 
+        //         }
+        //         else{
+        //             var optionArray = 
+        //         }
+        //     }
+
+        //     else{
+        //         if(semester == 'firstsemester'){
+        //             var optionArray = 
+        //         }
+        //         else{
+        //             var optionArray = 
+        //         }
+        //     }
         }
         
 

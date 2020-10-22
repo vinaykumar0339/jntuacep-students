@@ -1,3 +1,4 @@
+from django.http import request
 from django.shortcuts import render
 from home.models import PdfUpload
 
@@ -11,6 +12,8 @@ def cseRegulation(request,regulation):
     data['regulation'] = regulation.split('-')[1]
     return render(request,'branches/regulation.html',data)
 
+
+    
 
 def cseYear(request,regulation,year):
     data['regulation'] = regulation.split('-')[1]
@@ -26,6 +29,7 @@ def cseYear(request,regulation,year):
 
 
 def cseSemester(request,regulation,year,semester):
+
     data['regulation'] = regulation
     if year == 1:
         data['year'] = 'First Year'

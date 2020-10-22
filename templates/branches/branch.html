@@ -15,30 +15,39 @@
 <body>
     {% include 'navbar/navbar.html' %}
     <br>
-    <h1 style="text-align: center;">{{branch}}</h1>
+    <h1 style="text-align:center;">{{branch}}</h1>
     <br>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{% static 'images/clglogo.jpg' %}" alt="Card image cap">
-                    <div class="card-body">
-                    <h5 class="card-title">Regulation - 15</h5>
-                    <p class="card-text"></p>
-                    <a href="R-15" class="btn btn-primary">Select Year</a>
+        <div class="row justify-content-left">
+            <div class="col-md-4 col" style=" padding : 10px">
+                <div class="card" style="width: 18rem; padding : 10px">
+                    <select class="browser-default custom-select" id="regulation" name="regulation" onchange="subjects()">
+                        <option selected>Select Regulation</option>
+                        <option value="r-15">R-15</option>
+                        <option value="r-19">R-19</option>
+                      </select>
+                      <br>
+                        <br>
+                    <select class="browser-default custom-select" id="year" name="year" " >
+                        <option selected>Select Year</option>
+                        <option value="firstyear">I</option>
+                        <option value="secondyear">II</option>
+                        <option value="thirdyear">III</option>
+                        <option value="fourthyear">IV</option>
+                    </select>
+                    <br>
+                        <br>
+                        <select class="browser-default custom-select" id="semester" name="semester" ">
+                            <option selected>Select semester</option>
+                            <option value="firstsemester">I</option>
+                            <option value="secondsemester">II</option>
+                        </select>
+
+                        <a href="{% url  %}" class="btn btn-primary">Go To Semesters</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="{% static 'images/clglogo.jpg' %}" alt="Card image cap">
-                    <div class="card-body">
-                    <h5 class="card-title">Regulation - 19</h5>
-                    <p class="card-text"></p>
-                    <a href="R-19" class="btn btn-primary">Select Year</a>
-                    </div>
-                </div>
-            </div>
+            
         </div>
         
 
